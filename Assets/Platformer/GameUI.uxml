@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+        <ui:Label text="MARIO&#10;000000" name="labelScore" style="-unity-font-definition: url(&quot;project://database/Assets/Platformer/super-mario-bros-nes.ttf?fileID=12800000&amp;guid=f487df41af24a5e47bd61fa1ba30a90e&amp;type=3#super-mario-bros-nes&quot;); color: rgb(255, 255, 255); font-size: 17px; margin-left: 11%; margin-top: 1.5%;"/>
+        <ui:Image name="imageCoin" style="position: absolute; height: 30px; width: 30px; top: 31px; left: 233px;"/>
+        <ui:Label text="&#10; x00" name="labelCoin" style="-unity-font-definition: url(&quot;project://database/Assets/Platformer/super-mario-bros-nes.ttf?fileID=12800000&amp;guid=f487df41af24a5e47bd61fa1ba30a90e&amp;type=3#super-mario-bros-nes&quot;); color: rgb(255, 255, 255); font-size: 17px; margin-top: 1.5%; margin-left: 3.5%;"/>
+        <ui:Label text="WORLD&#10; 1-1" name="labelWorld" style="-unity-font-definition: url(&quot;project://database/Assets/Platformer/super-mario-bros-nes.ttf?fileID=12800000&amp;guid=f487df41af24a5e47bd61fa1ba30a90e&amp;type=3#super-mario-bros-nes&quot;); color: rgb(255, 255, 255); font-size: 17px; margin-top: 1.5%; margin-left: 6.5%;"/>
+        <ui:Label text="TIME" name="labelTime" style="-unity-font-definition: url(&quot;project://database/Assets/Platformer/super-mario-bros-nes.ttf?fileID=12800000&amp;guid=f487df41af24a5e47bd61fa1ba30a90e&amp;type=3#super-mario-bros-nes&quot;); color: rgb(255, 255, 255); font-size: 17px; margin-top: 1.5%; margin-left: 3.5%;"/>
+    </ui:VisualElement>
+</ui:UXML>
