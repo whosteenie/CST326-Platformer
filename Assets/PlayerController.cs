@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,14 +15,49 @@ public class PlayerController : MonoBehaviour
     
     private CharacterController _controller;
     [SerializeField] private GameObject mario;
+    private Label _labelTime;
+    private int _timeRemaining = 400;
+    private float _timeAccumulator;
     
     void Start()
     {
         _controller = GetComponent<CharacterController>();
+        var uiDocument = FindFirstObjectByType<UIDocument>();
+        if (uiDocument != null)
+            _labelTime = uiDocument.rootVisualElement.Q<Label>("labelTime");
+        if (_labelTime != null)
+            _labelTime.text = $"TIME\n {_timeRemaining}";
+    }
+
+    void OnAttack()
+    {
+        var cam = Camera.main;
+        if (cam == null)
+            return;
+
+        var ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (!Physics.Raycast(ray, out var hit))
+            return;
+
+        var hitObject = hit.collider.gameObject;
+        var block = hitObject.name;
+        if (block.Contains("Brick"))
+            Destroy(hitObject);
     }
 
     void Update()
     {
+        if (_labelTime != null && _timeRemaining > 0)
+        {
+            _timeAccumulator += Time.deltaTime;
+            if (_timeAccumulator >= 1f)
+            {
+                _timeAccumulator -= 1f;
+                _timeRemaining--;
+                _labelTime.text = $"TIME\n {_timeRemaining}";
+            }
+        }
+
         var direction = 0f;
         if(Keyboard.current.dKey.isPressed) direction = 1f;
         if(Keyboard.current.aKey.isPressed) direction = -1f;
